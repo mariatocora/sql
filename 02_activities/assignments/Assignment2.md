@@ -45,17 +45,22 @@ There are several tools online you can use, I'd recommend [Draw.io](https://www.
 
 **HINT:** You do not need to create any data for this prompt. This is a conceptual model only. 
 
+- <img src="./images/prompt1_MT.png" width="600">
+
 #### Prompt 2
 We want to create employee shifts, splitting up the day into morning and evening. Add this to the ERD.
+
+- <img src="./images/prompt2_MT.png" width="600">
 
 #### Prompt 3
 The store wants to keep customer addresses. Propose two architectures for the CUSTOMER_ADDRESS table, one that will retain changes, and another that will overwrite. Which is type 1, which is type 2? 
 
 **HINT:** search type 1 vs type 2 slowly changing dimensions. 
 
+- <img src="./images/prompt3_MT.png" width="600">
+
 ```
-Your answer...
-```
+I attached an image graphically describing the differences. I also included text in the description. ```
 
 ***
 
@@ -182,5 +187,4 @@ Consider, for example, concepts of labour, bias, LLM proliferation, moderating c
 
 
 ```
-Your thoughts...
-```
+In the article “Neural nets are just people all the way down”, data scientist and engineer Vicki Boykins describes multiple considerations on the essential role humans play in machine learning training. As a first approach, Boykins highlights the history of millions of people screening data that is later used as input into an algorithm- a reality quite overlooked by users and developers. Students and crowd workers have mainly been delegated to collect, categorize, and track data across multiple years on the Internet. However, this workforce is mostly unpaid and unrecognized - as millions of garment workers across the world (an analogy mentioned in the text) do not even receive a livable salary.  I need to admit this situation recalls an overspread reality across Academia, where students are laborers behind research but, in many cases, are not even hired or acknowledged in publications. As universities and industries work toward equity, labor policies must change around the way people’s work is financially rewarded and ethically recognized. These changes should be accompanied by ethical labor laws that guarantee no employee is subject to unfair conditions -underpayment, and their work and contributions are acknowledged. In a second approach, the author highlights the bias behind machine learning -an irrefutable reality based on the nature of human data collection. The use of WordNet synonym for image collection directly imposes limitations on the information deposited in databases. First, word-specific databases could be jeopardized by an author’s interpretation and approbation of a particular concept. For instance, a world-used ideal word-based database should incorporate how a concept’s meaning differs around countries and cultures. If a database is built on words used in an American context and then translated into other languages, the translation might not be accurate and could highly impact the different meanings of words around the world. Second, people behind a database could potentially omit societal concepts (e.g., diversity, equity, and inclusion --DEI), limiting the data to their perceptions of society. If a person does not believe in DEI, we might expect that the data they collect might not consider DEI at all. Although there is not a clear solution to these problems, actions like 1). Content moderation; 2). Inclusion of copyright; 3). Description of concepts under societal and cultural considerations; 4). Screening of data to ensure fairness and mitigate biases and discrimination might improve the quality of information users receive. ```
