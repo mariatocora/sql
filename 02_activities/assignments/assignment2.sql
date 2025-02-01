@@ -24,6 +24,7 @@ SELECT *,
 product_name || ', ' || IFNULL(product_size,'')|| ' (' || coalesce(product_qty_type, 'unit') || ')'
 FROM product;
 
+
 --Windowed Functions
 /* 1. Write a query that selects from the customer_purchases table and numbers each customer’s  
 visits to the farmer’s market (labeling each market date with a different number). 
@@ -51,6 +52,7 @@ only the customer’s most recent visit. */
 	DENSE_RANK() OVER(PARTITION BY customer_id ORDER BY market_date DESC) as [customer_visit_dense_rank]
 	FROM customer_purchases
 	
+
 --Second query
 SELECT *
 
@@ -63,6 +65,7 @@ FROM (
 )x
 WHERE x.customer_visit_dense_rank= 1;
 
+
 /* 3. Using a COUNT() window function, include a value along with each row of the 
 customer_purchases table that indicates how many different times that customer has purchased that product_id. */
 
@@ -72,6 +75,7 @@ product_id,
 COUNT(product_id) as times_product_purchased
 FROM customer_purchases
 GROUP BY customer_id, product_id;
+
 
 -- String manipulations
 /* 1. Some product names in the product table have descriptions like "Jar" or "Organic". 
@@ -90,6 +94,7 @@ SELECT
 FROM 
     product;
 
+
 /* 2. Filter the query to show any product_size value that contain a number with REGEXP. */
 
 SELECT 
@@ -97,6 +102,7 @@ SELECT
     product_name , SUBSTR(product_name, INSTR(product_name, '-') + 1)  
 FROM product
 WHERE product_size REGEXP '[0-9]'
+
 
 -- UNION
 /* 1. Using a UNION, write a query that displays the market dates with the highest and lowest total sales.
@@ -166,12 +172,14 @@ CREATE TABLE product_units AS
  FROM product AS p
  WHERE product_qty_type = "unit"
 
+
 /*2. Using `INSERT`, add a new row to the product_units table (with an updated timestamp). 
 This can be any product you desire (e.g. add another record for Apple Pie). */
 
 --Step 1: I checked the order of the columns in the new table
 SELECT *
 FROM product_units
+
 
 --Step 2: Insert the new row based on the order of the columns.
 INSERT INTO product_units (product_id, product_name,
@@ -186,9 +194,11 @@ INSERT INTO product_units (product_id, product_name,
       FROM product AS p
       WHERE product_id = 7
 
+
 --Step 3: I confirmed the new row was inserted and that it has an updated timespand
 SELECT *
 FROM product_units
+
 
 -- DELETE
 /* 1. Delete the older record for the whatever product you added. 
@@ -202,9 +212,11 @@ SELECT product_id
     FROM product_units 
     WHERE product_id = 7
 
+
 --Step 2: Check the new temp.older_record
 SELECT *
 FROM temp.older_record
+
 
 --Step 3: Delete 
 DELETE FROM product_units
@@ -216,6 +228,7 @@ AND snapshot_timestamp =
   (SELECT  snapshot_timestamp 
   FROM temp.older_record
     ))
+
 
 -- UPDATE
 /* 1.We want to add the current_quantity to the product_units table. 
@@ -255,8 +268,10 @@ SET current_quantity = (
   ) pu
 WHERE product_units.product_id = pu.product_id);
 
+
 --Step 3: Check the updated table
 SELECT *
 FROM product_units
+
 
 
